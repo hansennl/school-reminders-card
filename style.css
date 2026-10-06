@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif, Arial;
+}
+
+body {
+  background-color: #092328;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  padding: 20px 0;
+}
+
+.wrapper {
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background-color: #12544F;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 110px solid #8BBB92;
+  transform-origin: top;
+  transition: transform 0.6s ease-in-out;
+  z-index: 3;
+}
+
+.pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 150px solid #2A835F;
+  border-right: 150px solid #2A835F;
+  border-bottom: 100px solid #8BBB92;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 2;
+}
+
+.letter-preview {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  z-index: 4;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.card {
+  position: relative; /* Container boundary for moving button */
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  margin: 20px auto;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.card.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.message-text {
+  margin: 15px 0;
+  color: #636e72;
+  line-height: 1.5;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #2d3436;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+  min-height: 50px;
+}
+
+button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#yes-btn {
+  background-color: #8BBB92;
+  color: white;
+}
+
+#no-btn {
+  background-color: #2A835F;
+  color: white;
+  position: static; 
+  transition: left 0.2s ease, top 0.2s ease;
+}
